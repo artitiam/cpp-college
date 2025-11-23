@@ -4,7 +4,7 @@ using namespace std;
 int main()
 {
   float dist_ab, dist_bc, fuel_ab, fuel_bc, fuel_after_ab, additional_fuel;
-  int weight, fuelRate;
+  int weight, fuel_rate;
 
   cout << "Введите расстояние A-B, расстояние B-C и вес груза: ";
   cin >> dist_ab >> dist_bc >> weight;
@@ -17,16 +17,16 @@ int main()
   }
 
   if (weight <= 500)
-    fuelRate = 1;
+    fuel_rate = 1;
   else if (weight <= 1000)
-    fuelRate = 4;
+    fuel_rate = 4;
   else if (weight <= 1500)
-    fuelRate = 7;
+    fuel_rate = 7;
   else if (weight <= 2000)
-    fuelRate = 9;
+    fuel_rate = 9;
 
-  fuel_ab = dist_ab * fuelRate;
-  fuel_bc = dist_bc * fuelRate;
+  fuel_ab = dist_ab * fuel_rate;
+  fuel_bc = dist_bc * fuel_rate;
 
   if (fuel_ab > 300 || fuel_bc > 300)
   {
