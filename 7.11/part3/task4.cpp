@@ -31,7 +31,8 @@ int main()
   if (fuel_ab > 300 || fuel_bc > 300)
   {
     cout << "Полет невозможен: недостаточно топлива для преодоления участка." << endl;
-    return 0;
+    
+    return 1;
   }
 
   fuel_after_ab = 300 - fuel_ab;
