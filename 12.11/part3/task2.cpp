@@ -1,40 +1,40 @@
-#include <iostream>
+#include <iostream> 
 using namespace std;
 
 int main()
 {
-  int from, to;
-  float minutes;
-  float price_per_min = 0.0;
+  int from, to;              // Переменные для исходного и целевого операторов
+  float minutes;             // Переменная для длительности разговора
+  float price_per_min = 0.0; // Переменная для тарифа за минуту
 
-  cout << "Введите длительность разговора (в минутах), исходного оператора(1 или 2) и оператора назначения(1 или 2): ";
-  cin >> minutes >> from >> to;
+  cout << "Введите длительность разговора (в минутах), исходного оператора(1 или 2) и оператора назначения(1 или 2): "; // Просим ввести данные
+  cin >> minutes >> from >> to;                                                                                         // Ввод длительности и операторов
 
-  if (from == 1 && to == 1)
+  if (from == 1 && to == 1) // Проверяем комбинацию операторов
   {
-    price_per_min = 0.5;
+    price_per_min = 0.5; // Тариф 0.5$ за минуту
   }
-  else if (from == 1 && to == 2)
+  else if (from == 1 && to == 2) // Проверка другой комбинации
   {
-    price_per_min = 0.7;
+    price_per_min = 0.7; // Тариф 0.7$
   }
-  else if (from == 2 && to == 1)
+  else if (from == 2 && to == 1) // Еще одна комбинация
   {
-    price_per_min = 0.6;
+    price_per_min = 0.6; // Тариф 0.6$
   }
-  else if (from == 2 && to == 2)
+  else if (from == 2 && to == 2) // Последняя комбинация
   {
-    price_per_min = 0.4;
+    price_per_min = 0.4; // Тариф 0.4$
   }
-  else
+  else // Если введены некорректные операторы
   {
-    cout << "Неверно выбран оператор!" << endl;
-    return 0;
+    cout << "Неверно выбран оператор!" << endl; // Сообщение об ошибке
+    return 0;                                   // Завершение программы
   }
 
-  float cost = minutes * price_per_min;
+  float cost = minutes * price_per_min; // Рассчитываем стоимость разговора
 
-  cout << "\nСтоимость разговора: " << cost << "$" << endl;
+  cout << "\nСтоимость разговора: " << cost << "$" << endl; // Вывод результата
 
-  return 0;
+  return 0; // Завершение программы
 }

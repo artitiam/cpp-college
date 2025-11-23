@@ -1,88 +1,88 @@
-#include <iostream>
+#include <iostream> 
 using namespace std;
 
 int main()
 {
-  int choice;
-  float pay_per_100 = 50.0;
-  float fine_every_3 = 20.0;
+  int choice;                // Переменная для выбора пункта меню
+  float pay_per_100 = 50.0;  // Зарплата за каждые 100 строк кода
+  float fine_every_3 = 20.0; // Штраф за каждое третье опоздание
 
-  cout << "Меню:\n";
-  cout << "1. Расчет количества строк для желаемого дохода и опозданий\n";
-  cout << "2. Расчет количества возможных опозданий\n";
-  cout << "3. Расчет итоговой зарплаты\n";
-  cout << "Выберите пункт меню: ";
-  cin >> choice;
+  cout << "Меню:\n";                                                       // Заголовок меню
+  cout << "1. Расчет количества строк для желаемого дохода и опозданий\n"; // Пункт 1
+  cout << "2. Расчет количества возможных опозданий\n";                    // Пункт 2
+  cout << "3. Расчет итоговой зарплаты\n";                                 // Пункт 3
+  cout << "Выберите пункт меню: ";                                         // Запрос выбора
+  cin >> choice;                                                           // Ввод выбора пользователя
 
-  switch (choice)
+  switch (choice) // Проверка выбранного пункта
   {
-  case 1:
+  case 1: // Пункт 1
   {
-    float desired_income;
-    int late_count;
-    cout << "Введите желаемый доход ($): ";
-    cin >> desired_income;
-    cout << "Введите количество опозданий: ";
-    cin >> late_count;
+    float desired_income;                     // Желаемый доход
+    int late_count;                           // Количество опозданий
+    cout << "Введите желаемый доход ($): ";   // Запрос дохода
+    cin >> desired_income;                    // Ввод дохода
+    cout << "Введите количество опозданий: "; // Запрос опозданий
+    cin >> late_count;                        // Ввод опозданий
 
-    int fines = (late_count / 3) * fine_every_3;
-    float needed_income = desired_income + fines;
+    int fines = (late_count / 3) * fine_every_3;  // Вычисляем штраф за каждое третье опоздание
+    float needed_income = desired_income + fines; // Доход с учетом штрафов
 
-    float lines = (needed_income / pay_per_100) * 100.0;
+    float lines = (needed_income / pay_per_100) * 100.0; // Считаем сколько строк кода нужно написать
 
-    cout << "Васе нужно написать " << lines << " строк кода.\n";
-    break;
+    cout << "Васе нужно написать " << lines << " строк кода.\n"; // Вывод результата
+    break;                                                       // Выход из пункта меню
   }
-  case 2:
+  case 2: // Пункт 2
   {
-    float lines;
-    float desired_income;
-    cout << "Введите количество строк кода: ";
-    cin >> lines;
-    cout << "Введите желаемую зарплату ($): ";
-    cin >> desired_income;
+    float lines;                               // Введенное количество строк
+    float desired_income;                      // Желаемый доход
+    cout << "Введите количество строк кода: "; // Запрос строк
+    cin >> lines;                              // Ввод
+    cout << "Введите желаемую зарплату ($): "; // Запрос дохода
+    cin >> desired_income;                     // Ввод
 
-    float base_income = (lines / 100.0) * pay_per_100;
+    float base_income = (lines / 100.0) * pay_per_100; // Рассчитываем базовый доход без штрафов
 
-    if (base_income < desired_income)
+    if (base_income < desired_income) // Если заработать желаемую зарплату невозможно
     {
-      cout << "С таким количеством строк заработать нельзя.\n";
+      cout << "С таким количеством строк заработать нельзя.\n"; // Выводим сообщение
     }
-    else
+    else // Иначе
     {
-      float desiavailable_for_finesred_income = base_income - desired_income;
-      int possible_late = (desiavailable_for_finesred_income / fine_every_3) * 3;
-      cout << "Вася может опоздать " << possible_late << " раз.\n";
+      float available_for_fines = base_income - desired_income;     // Сколько можно потратить на штрафы
+      int possible_late = (available_for_fines / fine_every_3) * 3; // Считаем количество возможных опозданий
+      cout << "Вася может опоздать " << possible_late << " раз.\n"; // Вывод результата
     }
 
-    break;
+    break; // Выход из пункта меню
   }
-  case 3:
+  case 3: // Пункт 3
   {
-    float lines;
-    int late_count;
-    cout << "Введите количество строк кода: ";
-    cin >> lines;
-    cout << "Введите количество опозданий: ";
-    cin >> late_count;
+    float lines;                               // Количество строк
+    int late_count;                            // Количество опозданий
+    cout << "Введите количество строк кода: "; // Запрос строк
+    cin >> lines;                              // Ввод
+    cout << "Введите количество опозданий: ";  // Запрос опозданий
+    cin >> late_count;                         // Ввод
 
-    float base_income = (lines / 100.0) * pay_per_100;
-    float total_fines = (late_count / 3) * fine_every_3;
-    float final_income = base_income - total_fines;
+    float base_income = (lines / 100.0) * pay_per_100;   // Рассчитываем базовую зарплату
+    float total_fines = (late_count / 3) * fine_every_3; // Рассчитываем штраф
+    float final_income = base_income - total_fines;      // Итоговая зарплата после штрафов
 
-    if (final_income <= 0)
+    if (final_income <= 0) // Если зарплата нулевая или отрицательная
     {
-      cout << "Васе ничего не заплатят.\n";
+      cout << "Васе ничего не заплатят.\n"; // Выводим сообщение
     }
-    else
+    else // Иначе
     {
-      cout << "Васе заплатят " << final_income << " $.\n";
+      cout << "Васе заплатят " << final_income << " $.\n"; // Выводим зарплату
     }
-    break;
+    break; // Выход из пункта меню
   }
-  default:
-    cout << "Неверный пункт меню!\n";
+  default:                            // Если выбран неверный пункт меню
+    cout << "Неверный пункт меню!\n"; // Выводим сообщение
   }
 
-  return 0;
+  return 0; // Завершение программы
 }
