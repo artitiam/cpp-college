@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  int a, sum = 0;
+  cout << "Введите значение a: ";
+  cin >> a;
+  for (int i = a; i <= 500; i++)
+  {
+    sum += i;
+  }
+
+  cout << "Сумма целых чисел от " << a << " до 500: " << sum << endl;
+
+  return 0;
+}
