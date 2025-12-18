@@ -9,7 +9,6 @@ using namespace std;
 
 typedef vector<vector<int>> Matrix;
 
-// Вспомогательная функция для вывода вектора
 void printVector(const vector<int> &v)
 {
   for (int x : v)
@@ -17,7 +16,6 @@ void printVector(const vector<int> &v)
   cout << endl;
 }
 
-// Вспомогательная функция для вывода матрицы
 void printMatrix(const Matrix &m)
 {
   for (const auto &row : m)
@@ -28,7 +26,6 @@ void printMatrix(const Matrix &m)
   }
 }
 
-// 1. Создание, сумма и среднее
 void task1()
 {
   vector<int> vec(10);
@@ -40,7 +37,6 @@ void task1()
   cout << "Сумма: " << sum << ", Среднее: " << (double)sum / vec.size() << endl;
 }
 
-// 2. Поиск элемента
 int task2(const vector<int> &v, int target)
 {
   for (int i = 0; i < v.size(); i++)
@@ -49,7 +45,6 @@ int task2(const vector<int> &v, int target)
   return -1;
 }
 
-// 3. Фильтрация (четные и больше X)
 vector<int> task3(const vector<int> &v, int threshold)
 {
   vector<int> res;
@@ -59,7 +54,6 @@ vector<int> task3(const vector<int> &v, int threshold)
   return res;
 }
 
-// 4. Палиндром
 bool task4(const vector<int> &v)
 {
   for (int i = 0; i < v.size() / 2; i++)
@@ -68,7 +62,6 @@ bool task4(const vector<int> &v)
   return true;
 }
 
-// 5. Умножение матриц
 Matrix task5(const Matrix &A, const Matrix &B)
 {
   Matrix C(A.size(), vector<int>(B[0].size(), 0));
@@ -79,7 +72,6 @@ Matrix task5(const Matrix &A, const Matrix &B)
   return C;
 }
 
-// 6. Max/Min и координаты
 void task6(const Matrix &m)
 {
   int mx = m[0][0], mn = m[0][0], rMx = 0, cMx = 0, rMn = 0, cMn = 0;
@@ -102,17 +94,14 @@ void task6(const Matrix &m)
   cout << "Max: " << mx << " [" << rMx << "," << cMx << "], Min: " << mn << " [" << rMn << "," << cMn << "]" << endl;
 }
 
-// 7. Проверка на квадратность
 bool task7(const Matrix &m) { return !m.empty() && m.size() == m[0].size(); }
 
-// 8. Удаление дубликатов
 void task8(vector<int> &v)
 {
   set<int> s(v.begin(), v.end());
   v.assign(s.begin(), s.end());
 }
 
-// 9. Инверсия и сдвиг вправо
 void task9(vector<int> &v, int k)
 {
   reverse(v.begin(), v.end());
@@ -120,7 +109,6 @@ void task9(vector<int> &v, int k)
   rotate(v.rbegin(), v.rbegin() + k, v.rend());
 }
 
-// 10. Совпадающие элементы двух векторов
 void task10(const vector<int> &v1, const vector<int> &v2)
 {
   for (int x : v1)
@@ -130,7 +118,6 @@ void task10(const vector<int> &v1, const vector<int> &v2)
   cout << endl;
 }
 
-// 11. Подвектор с макс. суммой (Алгоритм Кадана)
 int task11(const vector<int> &v)
 {
   int m_so_far = v[0], cur_m = v[0];
@@ -142,7 +129,6 @@ int task11(const vector<int> &v)
   return m_so_far;
 }
 
-// 12. Замена отрицательных
 void task12(vector<int> &v, int val)
 {
   for (int &x : v)
@@ -150,7 +136,6 @@ void task12(vector<int> &v, int val)
       x = val;
 }
 
-// 13. Спиральный вывод
 void task13(const Matrix &m)
 {
   if (m.empty() || m[0].empty())
@@ -164,44 +149,39 @@ void task13(const Matrix &m)
   cout << "Спиральный вывод: ";
   while (top <= bottom && left <= right)
   {
-    // 1. Движемся вправо по верхней границе
     for (int i = left; i <= right; ++i)
     {
       cout << m[top][i] << " ";
     }
-    top++; // Сдвигаем верхнюю границу вниз
+    top++; 
 
-    // 2. Движемся вниз по правой границе
     for (int i = top; i <= bottom; ++i)
     {
       cout << m[i][right] << " ";
     }
-    right--; // Сдвигаем правую границу влево
+    right--; 
 
-    // 3. Движемся влево по нижней границе (если она еще существует)
     if (top <= bottom)
     {
       for (int i = right; i >= left; --i)
       {
         cout << m[bottom][i] << " ";
       }
-      bottom--; // Сдвигаем нижнюю границу вверх
+      bottom--; 
     }
 
-    // 4. Движемся вверх по левой границе (если она еще существует)
     if (left <= right)
     {
       for (int i = bottom; i >= top; --i)
       {
         cout << m[i][left] << " ";
       }
-      left++; // Сдвигаем левую границу вправо
+      left++; 
     }
   }
   cout << endl;
 }
 
-// 14. Максимальная сумма подматрицы
 int task14(const Matrix &m)
 {
   int R = m.size(), C = m[0].size(), maxS = -1e9;
@@ -218,7 +198,6 @@ int task14(const Matrix &m)
   return maxS;
 }
 
-// 15. Поворот на 90 градусов (вправо)
 Matrix rotate90(const Matrix &m)
 {
   int R = m.size(), C = m[0].size();

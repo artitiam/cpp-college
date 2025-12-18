@@ -4,7 +4,6 @@
 
 using namespace std;
 
-// Задание 1: Возведение в степень
 float power(float base, int exp)
 {
   float result = 1.0;
@@ -18,7 +17,6 @@ float power(float base, int exp)
   return (exp < 0) ? 1.0 / result : result;
 }
 
-// Задание 2: Сумма чисел в диапазоне
 int sumInRange(int a, int b)
 {
   int start = (a < b) ? a : b;
@@ -31,7 +29,6 @@ int sumInRange(int a, int b)
   return sum;
 }
 
-// Задание 3: Совершенные числа
 bool isPerfect(int num)
 {
   if (num <= 0)
@@ -61,7 +58,6 @@ void findPerfectNumbers(int start, int end)
   cout << endl;
 }
 
-// Задание 4: Вывод игральной карты
 void drawCard(string rank, string suit)
 {
   cout << " ---------- " << endl;
@@ -75,10 +71,8 @@ void drawCard(string rank, string suit)
   cout << " ---------- " << endl;
 }
 
-// Задание 5: Счастливое число
 bool isLuckyTicket(int num)
 {
-  // Проверка, что число шестизначное
   if (num < 100000 || num > 999999)
     return false;
 
@@ -102,21 +96,16 @@ bool isLuckyTicket(int num)
 int main()
 {
 
-  // Тест задания 1
   cout << "Задание 1 (Степень 2^10): " << power(2, 10) << endl;
 
-  // Тест задания 2
   cout << "Задание 2 (Сумма от 1 до 10): " << sumInRange(1, 10) << endl;
 
-  // Тест задания 3
   cout << "Задание 3 (Совершенные числа от 1 до 500): ";
   findPerfectNumbers(1, 500);
 
-  // Тест задания 4
   cout << "Задание 4 (Вывод карты):" << endl;
-  drawCard("A", "♥"); // Для корректного вывода символов мастей нужна поддержка UTF-8 в консоли
+  drawCard("A", "♥");
 
-  // Тест задания 5
   int ticket = 123321;
   cout << "Задание 5 (Число " << ticket << " счастливое?): " << (isLuckyTicket(ticket) ? "Да" : "Нет") << endl;
 

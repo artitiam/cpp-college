@@ -6,7 +6,6 @@
 
 using namespace std;
 
-// Задание 1: Студенты
 struct Student
 {
   string name;
@@ -33,7 +32,6 @@ void task1()
       cin >> students[i].ses[k];
   }
 
-  // Сортировка по номеру группы
   sort(students.begin(), students.end(), [](const Student &a, const Student &b)
        { return a.group < b.group; });
 
@@ -54,12 +52,11 @@ void task1()
     cout << "Таких студентов нет.\n";
 }
 
-// Задание 2: Аэрофлот
 struct Aeroflot
 {
-  string nazn; // Название пункта назначения
-  int numr;    // Номер рейса
-  string tip;  // Тип самолета
+  string nazn;
+  int numr;
+  string tip;
 };
 
 void task2()
@@ -81,7 +78,6 @@ void task2()
     getline(cin, airport[i].tip);
   }
 
-  // Сортировка по номеру рейса
   sort(airport.begin(), airport.end(), [](const Aeroflot &a, const Aeroflot &b)
        { return a.numr < b.numr; });
 
@@ -102,12 +98,11 @@ void task2()
     cout << "Рейсов в этот пункт нет.\n";
 }
 
-// Задание 3: Работники
 struct Worker
 {
   string name;
-  string pos; // Должность
-  int year;   // Год поступления
+  string pos;
+  int year;
 };
 
 void task3()
@@ -128,7 +123,6 @@ void task3()
     cin >> table[i].year;
   }
 
-  // Сортировка по алфавиту
   sort(table.begin(), table.end(), [](const Worker &a, const Worker &b)
        { return a.name < b.name; });
 
@@ -149,12 +143,11 @@ void task3()
     cout << "Таких работников нет.\n";
 }
 
-// Задание 4: Поезда
 struct Train
 {
-  string nazn; // Пункт назначения
-  int numr;    // Номер поезда
-  string time; // Время отправления
+  string nazn;
+  int numr;
+  string time;
 };
 
 void task4()
@@ -175,7 +168,6 @@ void task4()
     cin >> rasp[i].time;
   }
 
-  // Сортировка по названию пункта назначения
   sort(rasp.begin(), rasp.end(), [](const Train &a, const Train &b)
        { return a.nazn < b.nazn; });
 
@@ -196,12 +188,11 @@ void task4()
     cout << "Таких поездов нет.\n";
 }
 
-// Задание 5: Маршруты
 struct Marsh
 {
-  string begst; // Начальный пункт
-  string term;  // Конечный пункт
-  int numer;    // Номер маршрута
+  string begst;
+  string term;
+  int numer;
 };
 
 void task5()
@@ -222,7 +213,6 @@ void task5()
     cin >> traffic[i].numer;
   }
 
-  // Сортировка по номерам маршрутов
   sort(traffic.begin(), traffic.end(), [](const Marsh &a, const Marsh &b)
        { return a.numer < b.numer; });
 
@@ -243,12 +233,11 @@ void task5()
     cout << "Маршрут не найден.\n";
 }
 
-// Задание 6: Блокнот
 struct Note
 {
   string name;
   string tele;
-  int bday[3]; // [0]-день, [1]-месяц, [2]-год
+  int bday[3];
 };
 
 void task6()
@@ -269,7 +258,6 @@ void task6()
     cin >> blocknote[i].bday[0] >> blocknote[i].bday[1] >> blocknote[i].bday[2];
   }
 
-  // Сортировка по датам (Год -> Месяц -> День)
   sort(blocknote.begin(), blocknote.end(), [](const Note &a, const Note &b)
        {
         if (a.bday[2] != b.bday[2]) return a.bday[2] < b.bday[2];
@@ -294,12 +282,11 @@ void task6()
     cout << "Запись не найдена.\n";
 }
 
-// Задание 7: Заказы
 struct Order
 {
-  string plat;  // Счет плательщика
-  string pol;   // Счет получателя
-  double summa; // Сумма
+  string plat;
+  string pol;
+  double summa;
 };
 
 void task7()
@@ -320,7 +307,6 @@ void task7()
     cin >> spisok[i].summa;
   }
 
-  // Сортировка по счетам плательщиков
   sort(spisok.begin(), spisok.end(), [](const Order &a, const Order &b)
        { return a.plat < b.plat; });
 
@@ -344,7 +330,6 @@ void task7()
 
 int main()
 {
-  setlocale(LC_ALL, "Russian");
   int choice;
 
   do
